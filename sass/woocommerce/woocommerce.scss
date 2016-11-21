@@ -72,11 +72,6 @@
 		@media screen and (min-width:$jumbotron){
 			width:25%;
 		}
-		&:hover{
-			img{
-				transform:scale(1.1);
-			}
-		}
 		img{
 			@include transition-tenth-sec;
 			@include teo;

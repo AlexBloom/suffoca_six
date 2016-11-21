@@ -34,45 +34,43 @@ get_header( 'shop' ); ?>
 			?>
 
 			<!-- Show featured image and title -->
-			<header id="shop-header" class="open-lookbook" style="background-image:url(<?php echo $featured_image[0]; ?>)">
-				<section>
-					<h1 class="title"> <?php the_field('lookbook_title'); ?></h1>
-				</section>
-			</header>
-
-			<!-- Begin Lookbook -->
-			<section id="lookbook-modal">
-
-  			<h3 class="lookbook-title"> <?php the_field('lookbook_title'); ?> </h3>
-
+			<header id="shop-header">
 				<div id="lookbook">
-				<?php
-					$slide_video = get_field('lookbook_video_youtube_id');
-					if (!empty ($slide_video)): ?>
-						<div class="pane">
-							<div class="fluid-width-video-wrapper height-100">
-								<iframe width="640" height="360" src="https://www.youtube.com/embed/<?php echo $slide_video; ?>?rel=0&amp;showinfo=0" frameborder="0" allowfullscreen></iframe>
+					<div class="pane" style="background-image:url(<?php echo $featured_image[0]; ?>)">
+						<section>
+							<h1 class="title"> <?php the_field('lookbook_title'); ?></h1>
+						</section>
+
+					</div>
+					<?php
+						$slide_video = get_field('lookbook_video_youtube_id');
+						if (!empty ($slide_video)): ?>
+							<div class="pane">
+								<div class="fluid-width-video-wrapper height-100">
+									<iframe width="640" height="360" src="https://www.youtube.com/embed/<?php echo $slide_video; ?>?rel=0&amp;showinfo=0" frameborder="0" allowfullscreen></iframe>
+								</div>
 							</div>
-						</div>
-				<?php endif; ?>
-				<?php
-					for ($x = 0; $x <= 12; $x++) {
-					    $slide_img = get_field('lookbook_image_'.$x.'');
-							//echo '<p>slide exists</p>';
-					    $slide_img_url = $slide_img['url'];
-					    if (!empty ($slide_img)) {
-					    	echo '<div class="pane" style="background-image:url('.$slide_img_url.');"> </div>' ;
-					    }
-					}
-				?>
+					<?php endif; ?>
+					<?php
+						for ($x = 0; $x <= 12; $x++) {
+								$slide_img = get_field('lookbook_image_'.$x.'');
+								//echo '<p>slide exists</p>';
+								$slide_img_url = $slide_img['url'];
+								if (!empty ($slide_img)) {
+									echo '<div class="pane" style="background-image:url('.$slide_img_url.');"> </div>' ;
+								}
+						}
+					?>
 
 				</div>
 
-				<svg class="icon icon-close close-lookbook">
-		        	<use xlink:href="#icon-close"></use>
-		        </svg>
-			</section>
-			<!-- End Lookbook -->
+
+				<!-- End Lookbook -->
+			</header>
+
+
+
+
 			<!-- <section id="shop-intro">
 			 php the_content();
 			</section> -->
