@@ -12,7 +12,7 @@
 }
 
 // Clearfix
-@mixin clearfix() {
+@mixin clearfix(){
 	content: "";
 	display: table;
 	table-layout: fixed;
@@ -23,12 +23,16 @@
 	clear: both;
 }
 
+/**
+ * Clearfix
+ */
 %clearfix {
-	content: "";
-	display: table;
-	table-layout: fixed;
+    &:after {
+        content: "";
+        display: table;
+        clear: both;
+    }
 }
-
 
 @mixin full-bleed-background{
 background-position:50% 50%;

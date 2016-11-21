@@ -21,14 +21,3 @@
 .site-footer:after {
 	@include clearfix-after;
 }
-
-/**
- * Clearfix
- */
-%clearfix {
-    &:after {
-        content: "";
-        display: table;
-        clear: both;
-    }
-}

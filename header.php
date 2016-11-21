@@ -158,8 +158,8 @@
 					</a>
 				</li>
 				<li style=" ">
-					<a href="mailto:info@suffoca.com" target=_blank>
-						info@suffoca.com
+					<a href="mailto:info@suffoca.com" target="_blank">
+						Email
 					</a>
 				</li>
 			</ul>
