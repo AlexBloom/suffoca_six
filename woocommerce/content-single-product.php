@@ -41,8 +41,7 @@ global $product;
 <article itemscope itemtype="<?php echo woocommerce_get_product_schema(); ?>" id="product-<?php the_ID(); ?>" class="product">
 
 
-	<div> <!-- start info slide -->
-		<header>
+	<header>
 				<section class="product-info">
 					<h2 itemprop="name" class="product_title entry-title"><?php the_title(); ?></h2>
 
@@ -112,8 +111,8 @@ global $product;
 
 
 				</div>
-		</header>
-	</div> <!-- end info slide -->
+	</header>
+	<!-- end info slide -->
 
 
 	<div class="product-slider">

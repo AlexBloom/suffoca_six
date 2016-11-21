@@ -688,6 +688,7 @@
 
 /* =========================== Filters List */
 .filters{
+	width: 100%;
 	@extend %clearfix;
 	text-align:center;
 	padding:.25rem $spacing-unit /2;

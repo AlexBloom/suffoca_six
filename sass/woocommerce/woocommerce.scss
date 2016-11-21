@@ -143,9 +143,9 @@ article.product{
 
 	}
 	.product-slider{
-		padding:$spacing-unit;
+		padding:0 $spacing-unit;
 		max-width:(em(1200));
-		margin:auto;
+		margin:0 auto;
 		.slick-slide{
 			background-color:#f7f7f7;
 			background-blend-mode:multiply;
@@ -160,6 +160,8 @@ article.product{
 		}
 	}
 	header{
+		@extend %clearfix;
+		width:100%;
 		padding:$spacing-unit/2;
 		.product-info{
 			box-sizing:border-box;
@@ -172,13 +174,15 @@ article.product{
 			box-sizing:border-box;
 			padding:$spacing-unit/2;
 			background:#f7f7f7;
+
 			img{
 				mix-blend-mode:multiply;
+				max-width:(em(600));
 			}
 		}
 		@media screen and (min-width:$tablet){
 			.featured-image{
-				max-width:50%;
+				width:50%;
 			}
 		}
 		@media screen and (min-width:$laptop){

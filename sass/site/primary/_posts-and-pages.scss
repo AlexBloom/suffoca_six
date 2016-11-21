@@ -155,6 +155,7 @@ article{
 }
 /* =========================== Post Grid */
 .posts{
+	width: 100%;
 	position:relative;
 	@extend %clearfix;
 	clear:both;
