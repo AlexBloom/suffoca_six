@@ -40,6 +40,7 @@ global $product;
 
 <article itemscope itemtype="<?php echo woocommerce_get_product_schema(); ?>" id="product-<?php the_ID(); ?>" class="product">
 
+
 	<div> <!-- start info slide -->
 		<header>
 				<section class="product-info">
@@ -139,6 +140,11 @@ global $product;
 				<img src="<?php bloginfo('template_directory'); ?>/img/sizechart.png" alt="Sizechart" />
 			</div>
 		</section>
+
+		<h6>
+			<a href="shop" id="back-to-shop">Back to Shop</a>
+		</h6>
+
 
 
 

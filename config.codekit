@@ -468,6 +468,15 @@
 		"shouldRunBless": 0,
 		"useLibsass": 0
 		},
+	"\/sass\/css\/woocommerce.css": {
+		"fileType": 16,
+		"ignore": 1,
+		"ignoreWasSetByUser": 0,
+		"inputAbbreviatedPath": "\/sass\/css\/woocommerce.css",
+		"outputAbbreviatedPath": "No Output Path",
+		"outputPathIsOutsideProject": 0,
+		"outputPathIsSetByUser": 0
+		},
 	"\/sass\/elements\/_elements.scss": {
 		"createSourceMap": 0,
 		"debugStyle": 0,

@@ -596,36 +596,16 @@ article.post{
 
 /* Shop */
 #shop-header{
-	@include full-bleed-background;
-	@extend %clearfix;
+	//@include full-bleed-background;
+//	@extend %clearfix;
 	color:$white;
 	text-align:center;
-	padding:$spacing-unit $spacing-unit;
-	cursor:pointer;
+	//padding:$spacing-unit $spacing-unit;
+	//cursor:pointer;
 	height:50vh;
-	display:flex;
-	display:-webkit-flex;
+	//display:flex;
+	//display:-webkit-flex;
 	position:relative;
-	&:before{
-		@include pseudo-block;
-		top:0;
-		bottom:0;
-		left:0;
-		right:0;
-		@include transition-tenth-sec;
-	}
-	section{
-		margin:auto;
-		z-index:2;
-	}
-	h1{
-		display:inline-block;
-		padding:.25em 1.5em;
-		line-height:1;
-		text-transform:uppercase;
-		line-height:1.5;
-	}
-
 	@media screen and (min-width:$desktop){
 		position:fixed;
 		top:0;
@@ -634,6 +614,45 @@ article.post{
 		bottom:0;
 		height:100vh;
 	}
+
+	#lookbook{
+		.pane{
+			height:100vh;
+			section{
+				position:relative;
+				z-index:2;
+				display:flex;
+				height:100%;
+				background-color: rgba(0,0,0,.25);
+			}
+			h1{
+				color:$white;
+				margin:auto;
+				display:inline-block;
+				padding:.25em 1.5em;
+				line-height:1;
+				text-transform:uppercase;
+				line-height:1.5;
+			}
+		}
+	}
+	.slick-prev, .slick-next{
+		color:$white;
+	}
+	.prev, .next{
+		position:fixed;
+		bottom:0;
+		width:1em;
+		padding:0 1em;
+		cursor:pointer;
+	}
+	.prev{
+		left:0;
+	}
+	.next{
+		right:0;
+	}
+
 }
 
 /* =========================== Shop Intro Text */
@@ -688,22 +707,7 @@ article.post{
 	// 	z-index:1;
 	// 	color:$white;
 
-		#lookbook{
-			visibility:hidden;
-			max-height:0;
-			.pane{
-				height:100vh;
-			}
-		}
-		.lookbook-title{
-			@include transition-tenth-sec;
-			position:fixed;
-			top:-200px;
-			left:0;
-			right:0;
-			padding:0 1em;
-			text-align:center;
-		}
+
 
 	// &.open{
 	// 	opacity:1;
@@ -743,26 +747,7 @@ article.post{
 	// 		transform:scale(.75);
 	// 	}
 	// }
-	.icon-close{
-			font-size:1.25em;
-			margin:0 auto;
-	}
-	.slick-prev, .slick-next{
-		color:$white;
-	}
-	.prev, .next{
-		position:fixed;
-		bottom:0;
-		width:1em;
-		padding:0 1em;
-		cursor:pointer;
-	}
-	.prev{
-		left:0;
-	}
-	.next{
-		right:0;
-	}
+
 
 
 #shop-archive-wrap{
