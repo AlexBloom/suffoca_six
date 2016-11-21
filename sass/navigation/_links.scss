@@ -1,0 +1,27 @@
+a {
+	color: $color__link;
+	//color:$brand-color;
+	@include transition-tenth-sec;
+	&:visited {
+		color: $color__link-visited;
+		color:$grey-dark;
+	}
+	&:hover,
+	&:focus {
+		color: $color__link-hover;
+		//color: $grey-dark;
+	}
+	&:active{
+		color:$black;
+	}
+	&:focus {
+		outline: thin dotted;
+	}
+	&:hover,
+	&:active {
+		outline: 0;
+	}
+}
+.link{
+	text-decoration:none;
+}

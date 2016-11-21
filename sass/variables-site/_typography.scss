@@ -1,0 +1,33 @@
+/* @import must be at top of file, otherwise CSS will not work */
+//@import url("//hello.myfonts.net/count/2cbcce");  
+//@font-face {
+//	font-family: 'Breakers-Regular';
+//	src: url('../fonts/2CBCCE_0_0.eot');
+//	src: url('../fonts/2CBCCE_0_0.eot?#iefix') format('embedded-opentype'),
+//		 url('../fonts/2CBCCE_0_0.woff2') format('woff2'),
+//		 url('../fonts/2CBCCE_0_0.woff') format('woff'),
+//		 url('../fonts/2CBCCE_0_0.ttf') format('truetype');}
+//@font-face {
+//	font-family: 'Breakers-Bold';
+//	src: url('../fonts/2CBCCE_1_0.eot');
+//	src: url('../fonts/2CBCCE_1_0.eot?#iefix') format('embedded-opentype'),
+//		 url('../fonts/2CBCCE_1_0.woff2') format('woff2'),
+//		 url('../fonts/2CBCCE_1_0.woff') format('woff'),
+//		 url('../fonts/2CBCCE_1_0.ttf') format('truetype');}
+
+
+$font__main: sans-serif;
+$font__code: Monaco, Consolas, "Andale Mono", "DejaVu Sans Mono", monospace;
+$font__pre: "Courier 10 Pitch", Courier, monospace;
+$font__line-height-body: 1.5;
+$font__line-height-pre: 1.6;
+
+
+$sans-bold: 'proxima-nova', helvetica, arial, sans-serif;
+$sans-regular: 'proxima-nova', helvetica, arial, sans-serif;
+$base-font-family: 'proxima-nova', helvetica, arial, sans-serif;
+$base-font-size:   1rem;
+$small-font-size:  $base-font-size *0.75;
+$base-line-height: 1.5;
+$scaled-font-size:22px;
+$spacing-unit:     2rem;

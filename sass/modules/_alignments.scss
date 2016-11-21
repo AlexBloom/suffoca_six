@@ -1,0 +1,66 @@
+// Align Blocks
+.alignleft {
+	display: inline;
+	float: left;
+	margin-right: 1.5em;
+}
+
+.alignright {
+	display: inline;
+	float: right;
+	margin-left: 1.5em;
+}
+
+.aligncenter {
+	clear: both;
+	@include center-block;
+}
+
+.float-center{
+  margin-left:auto;
+  margin-right:auto;
+}
+
+
+//Text Align
+.text-left{
+	text-align:left;
+}
+.text-right{
+	text-align:right;
+}
+.text-center{
+	text-align:center;
+}
+
+// Widths
+.max-width-s{
+  max-width:$phablet;
+}
+.max-width-m{
+  max-width:$tablet;
+}
+.max-width-l{
+  max-width:$laptop;
+}
+.max-width-xl{
+  max-width:$desktop;
+}
+.max-width-xxl{
+  max-width:$jumbotron;
+}
+.width-100{
+	width:100%;
+}
+
+
+// Display
+.block{
+	display:block;
+}
+.inline{
+	display:inline;
+}
+.inline-block{
+	display:inline-block;
+}

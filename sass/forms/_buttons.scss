@@ -1,0 +1,68 @@
+button,
+input[type="button"],
+input[type="reset"],
+input[type="submit"] {
+	background: $color__background-button;
+	color: rgba(0, 0, 0, .8);
+	@include font-size(0.75);
+	line-height: 1;
+	padding: .5em 1.5em;
+	@include transition-tenth-sec;
+	&:hover {
+		//border-color: $color__border-button-hover;
+		//box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.8), inset 0 15px 17px rgba(255, 255, 255, 0.8), inset 0 -5px 12px rgba(0, 0, 0, 0.02);
+	}
+	&:active,
+	&:focus {
+		border-color: $color__border-button-focus;
+		//box-shadow: inset 0 -1px 0 rgba(255, 255, 255, 0.5), inset 0 2px 5px rgba(0, 0, 0, 0.15);
+	}
+}
+
+
+
+
+input[type="submit"], .inline-button {
+	color: white;
+	padding: 1em;
+	text-align:center;
+	text-decoration: none;
+	font-weight: 700;
+}
+
+button, input[type=submit]{
+	font-family:$sans-bold;
+	font-size:$small-font-size;
+	background-color:$black;
+	color:$white;
+	text-transform:uppercase;
+	letter-spacing:.15em;
+	border:none;
+	outline:none;
+	cursor:pointer;
+}
+
+button, a.button{
+	padding:$spacing-unit /2 $spacing-unit /1.5 ;
+	margin-top:$spacing-unit;
+	margin-bottom:$spacing-unit;
+	box-sizing:border-box;
+}
+button{
+		background-color:rgba(0,0,0,.25);
+		&:hover, &:active{
+			background-color:$b80;
+			box-shadow:0 0px 0px 5px $b80;
+			color:$white;
+		}
+}
+a.button, a.button:visited{
+	text-decoration:none;
+	background-color:$b80;
+	color:$white;
+	&:hover, &:active{
+		background-color:$black;
+		box-shadow:0 0px 0px 5px $black;
+		color:$white;
+	}
+}

@@ -1,0 +1,107 @@
+Single Product Scratchpad
+
+								<?php
+								$has_row    = false;
+								$alt        = 1;
+								$attributes = $product->get_attributes();
+
+								ob_start();
+
+								?>
+								<table class="shop_attributes">
+
+									<?php if ( $product->enable_dimensions_display() ) : ?>
+
+										<?php if ( $product->has_weight() ) : $has_row = true; ?>
+											<tr class="<?php if ( ( $alt = $alt * -1 ) === 1 ) echo 'alt'; ?>">
+												<th><?php _e( 'Weight', 'woocommerce' ) ?></th>
+												<td class="product_weight"><?php echo $product->get_weight() . ' ' . esc_attr( get_option( 'woocommerce_weight_unit' ) ); ?></td>
+											</tr>
+										<?php endif; ?>
+
+										<?php if ( $product->has_dimensions() ) : $has_row = true; ?>
+											<tr class="<?php if ( ( $alt = $alt * -1 ) === 1 ) echo 'alt'; ?>">
+												<th><?php _e( 'Dimensions', 'woocommerce' ) ?></th>
+												<td class="product_dimensions"><?php echo $product->get_dimensions(); ?></td>
+											</tr>
+										<?php endif; ?>
+
+									<?php endif; ?>
+
+									<?php foreach ( $attributes as $attribute ) :
+										if ( empty( $attribute['is_visible'] ) || ( $attribute['is_taxonomy'] && ! taxonomy_exists( $attribute['name'] ) ) ) {
+											continue;
+										} else {
+											$has_row = true;
+										}
+										?>
+										<tr class="<?php if ( ( $alt = $alt * -1 ) == 1 ) echo 'alt'; ?>">
+											<th><?php echo wc_attribute_label( $attribute['name'] ); ?></th>
+											<td><?php
+												if ( $attribute['is_taxonomy'] ) {
+
+													$values = wc_get_product_terms( $product->id, $attribute['name'], array( 'fields' => 'names' ) );
+													echo apply_filters( 'woocommerce_attribute', wpautop( wptexturize( implode( ', ', $values ) ) ), $attribute, $values );
+
+												} else {
+
+													// Convert pipes to commas and display values
+													$values = array_map( 'trim', explode( WC_DELIMITER, $attribute['value'] ) );
+													echo apply_filters( 'woocommerce_attribute', wpautop( wptexturize( implode( ', ', $values ) ) ), $attribute, $values );
+
+												}
+											?></td>
+										</tr>
+									<?php endforeach; ?>
+
+								</table>
+								<?php
+								if ( $has_row ) {
+									echo ob_get_clean();
+								} else {
+									ob_end_clean();
+								}?>
+
+								<!-- END Product-attributes -->
+								<!-- begin product add-to-cart -->
+								<?php  if ( ! $product->is_purchasable() ) {
+									return;
+								}
+
+								?>
+
+								<?php
+									// Availability
+									$availability      = $product->get_availability();
+									$availability_html = empty( $availability['availability'] ) ? '' : '<p class="stock ' . esc_attr( $availability['class'] ) . '">' . esc_html( $availability['availability'] ) . '</p>';
+
+									echo apply_filters( 'woocommerce_stock_html', $availability_html, $availability['availability'], $product );
+								?>
+
+								<?php if ( $product->is_in_stock() ) : ?>
+
+									<?php do_action( 'woocommerce_before_add_to_cart_form' ); ?>
+
+									<form class="cart" method="post" enctype='multipart/form-data'>
+									 	<?php do_action( 'woocommerce_before_add_to_cart_button' ); ?>
+
+									 	<?php
+									 		if ( ! $product->is_sold_individually() ) {
+									 			woocommerce_quantity_input( array(
+									 				'min_value'   => apply_filters( 'woocommerce_quantity_input_min', 1, $product ),
+									 				'max_value'   => apply_filters( 'woocommerce_quantity_input_max', $product->backorders_allowed() ? '' : $product->get_stock_quantity(), $product ),
+									 				'input_value' => ( isset( $_POST['quantity'] ) ? wc_stock_amount( $_POST['quantity'] ) : 1 )
+									 			) );
+									 		}
+									 	?>
+
+									 	<input type="hidden" name="add-to-cart" value="<?php echo esc_attr( $product->id ); ?>" />
+
+									 	<button type="submit" id="add-to-cart" class="single_add_to_cart_button button alt"><?php echo esc_html( $product->single_add_to_cart_text() ); ?></button>
+
+										<?php do_action( 'woocommerce_after_add_to_cart_button' ); ?>
+									</form>
+
+									<?php do_action( 'woocommerce_after_add_to_cart_form' ); ?>
+
+								<?php endif; ?>

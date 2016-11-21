@@ -1,0 +1,50 @@
+@import "buttons";
+
+@import "fields";
+
+form{
+	font-family:$sans-regular;
+}
+
+
+form#email-subscribe{
+	text-align:center;
+	margin:0;
+	padding:$spacing-unit 0;
+	background-color:$black;
+	color:$grey;
+	h6{
+		color:$white;
+		font-size:$small-font-size;
+		margin-bottom:0;
+	}
+	#email{
+		font-size:$small-font-size;
+		padding:1em;
+		min-width:(em(300));
+		box-shadow:inset 0 0 0 2px $grey-dark;
+		color:$grey-light;
+		::-webkit-input-placeholder {
+		   color: $grey;
+		}
+		:-moz-placeholder { /* Firefox 18- */
+		   color: $grey;
+		}
+		::-moz-placeholder {  /* Firefox 19+ */
+		   color: $grey;
+		}
+
+		:-ms-input-placeholder {
+		   color: $grey;
+		}
+	}
+	#submit{
+		//box-shadow:1px  $grey-light;
+		background-color:$white;
+		color:$grey;
+		&:hover{
+			//background-color:$brand-color-secondary;
+			color:$black;
+		}
+	}
+}

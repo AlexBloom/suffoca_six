@@ -1,0 +1,66 @@
+//Full Screen / Vertical Centering / Featured Posts
+.full-screen, .full-width{
+    display: -webkit-flex;
+    display: flex;
+	position:relative;
+	width:100%;
+	min-height:(em(600));
+	text-align:center;
+	margin:0 0 $spacing-unit/2 0;
+	z-index:1;
+	@include full-bleed-background;
+	>section{
+		margin: auto;
+		max-width:(em(800));
+		padding:$spacing-unit $spacing-unit $spacing-unit /2;
+		border:5px solid $white;
+		color:$white;
+		background-color:$smoke;
+		position:relative;
+		z-index:3;
+		display:block;
+		overflow:hidden;
+		h1{
+			.icon-suffoca{
+				font-size:$base-font-size *8;
+			}
+		}
+	}
+
+}
+//.section-blur-bg{
+//	position:absolute;
+//	z-index:2;
+//	top:0;
+//	bottom:0;
+//	left:0;
+//	right:0;
+//	filter:blur(20px);
+//	-webkit-filter:blur(20px);
+//}
+
+
+.vertical-container {
+  display: -webkit-flex;
+  display: flex;
+  height: 300px;
+}
+.vertically-centered {
+  margin: auto;
+}
+
+
+
+
+// Articles, Text Content
+article{
+	header{
+		width:100%;
+		padding:1em;
+	}
+	section{
+		padding:1em;
+		margin:0 auto;
+		font-weight:300;
+	}
+}

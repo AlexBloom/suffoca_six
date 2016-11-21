@@ -1,0 +1,30 @@
+$size__site-main: 100%;
+$size__site-sidebar: 25%;
+
+// Media Variables
+
+/* EMS ======= */
+
+@function em($target, $context: 16) {
+    @return ($target / $context) * 1em;
+}
+
+$phone:(em(320));
+$phablet:(em(500));
+$tablet:(em(700));
+$laptop:(em(1000));
+$desktop:(em(1400));
+$jumbotron:(em(2000));
+// Using media queries with like this:
+// @include media-query($palm) {
+//     .wrapper {
+//         padding-right: $spacing-unit / 2;
+//         padding-left: $spacing-unit / 2;
+//     }
+// }
+@mixin media-query($device) {
+    @media screen and (min-width: $device) {
+        @content;
+    }
+}
+

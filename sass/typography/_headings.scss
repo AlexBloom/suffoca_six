@@ -1,0 +1,110 @@
+h1, h2, h3, h4, h5, h6 {
+	clear: both;
+}
+
+/**
+ * Headings
+ */
+h1, h2, h3, h4, h5, h6 {
+    font-weight: 300;
+}
+h1, h3{
+	font-family:$sans-bold;
+	-webkit-font-smoothing: antialiased;
+	-moz-osx-font-smoothing: grayscale;
+}
+h2, h4, h5, h6{
+	font-family:$sans-regular;
+}
+h1.title{
+	box-shadow:0 0 0 2px $white;
+	font-size:1em;
+	letter-spacing:.25em;
+	font-weight:800;
+	margin:1em auto;
+	padding:0 1em;
+	box-sizing:border-box;
+}
+.title{
+	font-family:$sans-bold;
+	text-transform:uppercase;
+	//margin:1em 0 0 0;
+}
+.subtitle{
+	font-family:$sans-regular;
+	font-size:$base-font-size;
+	button{
+		color:$white;
+	}
+}
+.h1{
+	font-size:$base-font-size *2;
+}
+.h2{
+	font-size:$base-font-size *1.5;
+}
+.h3{
+	font-size:$base-font-size *1.25;
+}
+.h4{
+	font-size:$base-font-size;
+}
+.h5{
+	font-size:$base-font-size *0.875;
+}
+.h6{
+	font-size:$base-font-size *0.75;
+}
+h1{
+    font-weight:800;
+	text-transform:uppercase;
+	font-size:$base-font-size *2;
+}
+h2{
+	font-size:$base-font-size *1.5;
+	@media screen and (min-width:$tablet) {
+		font-size:$base-font-size *2;
+	}
+	@media screen and (min-width:$desktop) {
+		font-size:$base-font-size *4;
+	}
+}
+h3{
+	font-size:$base-font-size;
+	text-transform:uppercase;
+	letter-spacing:.05em;
+	font-weight:800;
+	margin-top:$spacing-unit;
+}
+h4{
+	font-size:1em;
+	font-weight:600;
+}
+h5{
+	font-size:1em;
+	font-weight:600;
+}
+h6{
+	font-weight:800;
+	text-transform:uppercase;
+	letter-spacing:.1em;
+	font-size:.75rem;
+    color:$grey;
+}
+
+.post-title{
+	display:block;
+	position:relative;
+	z-index:2;
+	text-align:center;
+	padding-top:3em;
+	margin:auto;
+	max-width:(em(300));
+	color:$white;
+	p.subtitle{
+		//font-size:100%;
+	}
+	&:hover{
+		//box-shadow:0 5px 0 0 $white;
+	}
+}

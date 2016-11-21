@@ -1,0 +1,45 @@
+input{
+	font-family:$sans-regular;
+	outline:none;
+	padding:1em 0;
+	font-size:1em;
+}
+
+input[type="text"],
+input[type="email"],
+input[type="url"],
+input[type="password"],
+input[type="search"],
+textarea {
+	margin:.5em 0;
+	color: $color__text-input;
+	border: 1px solid $color__border-input;
+	border-radius: 3px;
+
+	&:focus {
+		color: $color__text-input-focus;
+	}
+}
+input[type="number"]{
+	padding:.5em;
+	max-width:5em;
+}
+
+input[type="text"],
+input[type="email"],
+input[type="url"],
+input[type="password"],
+input[type="search"] {
+	padding: .25em;
+}
+
+textarea {
+	padding-left: 3px;
+	width: 100%;
+}
+
+label {
+    float: left;
+    text-align: right;
+    margin-right: 1em;
+}

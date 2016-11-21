@@ -1,0 +1,112 @@
+html {
+	box-sizing: border-box;
+}
+
+*,
+*:before,
+*:after { /* Inherit box-sizing to make it easier to change the property for components that leverage other behavior; see http://css-tricks.com/inheriting-box-sizing-probably-slightly-better-best-practice/ */
+	box-sizing: inherit;
+}
+
+body {
+	background: $color__background-screen; /* Fallback for when there is no custom background color defined. */
+}
+
+blockquote{
+	font-family:$base-font-family;
+	font-style:italic;
+	font-weight:400;
+	color:$text-color;
+	background-color:$white-dark;
+	padding: $spacing-unit;
+	font-size:1.25em;
+	letter-spacing: 0.01rem;
+	text-rendering: optimizeLegibility;
+	-webkit-font-smoothing: antialiased;
+	-moz-osx-font-smoothing: grayscale;
+	-moz-font-feature-settings: "liga" on;
+}
+
+q {
+	quotes: "" "";
+
+	&:before,
+	&:after {
+		content: "";
+	}
+}
+
+hr {
+	//background-color: $color__background-hr;
+	background-color:$grey-light;
+	border: 0;
+	height: 1px;
+	//margin-bottom: 1.5em;
+	margin:$spacing-unit /2 0;
+	//border-top:none;
+	//border-left:none;
+	//border-right:none;
+	//border-top:1px solid $grey-light;
+}
+
+/**
+ * Figures
+ */
+figure {
+	display:block;
+	background-color:$white;
+	border-top:.25rem solid $white;
+	border-left:.25rem solid $white;
+	border-right:.25rem solid $white;
+	box-shadow:0px 0px 1px $grey-light;
+	margin:$spacing-unit auto;
+	padding:0!important;
+	img{
+		margin:0!important;
+		width:100%;
+	}
+	figcaption{
+		font-family:$base-font-family;
+		letter-spacing: 0.01rem;
+		color:$grey;
+		display:block;
+		margin:0;
+		padding:$spacing-unit /2;
+	}
+	blockquote{
+		border:none;
+		margin:0!important;
+		color:$grey-dark;
+	}
+}
+
+
+@import "lists";
+
+img {
+	height: auto; /* Make sure images are scaled correctly. */
+	max-width: 100%; /* Adhere to container width. */
+}
+
+/**
+ * Images
+ */
+img {
+	display:block;
+    width: 100%;
+	max-width:em(1200);
+	margin:0 auto $spacing-unit;
+    vertical-align: middle;
+}
+img.half{
+	@extend %vertical-rhythm;
+	width:100%;
+	@media screen and (min-width:$tablet){
+		float:left;
+		width:50%;
+	}
+}
+
+
+
+@import "tables";

@@ -1,0 +1,130 @@
+// Rem output with px fallback
+@mixin font-size($sizeValue: 1) {
+	font-size: ($sizeValue * 16) * 1px;
+	font-size: $sizeValue * 1rem;
+}
+
+// Center block
+@mixin center-block {
+	display: block;
+	margin-left: auto;
+	margin-right: auto;
+}
+
+// Clearfix
+@mixin clearfix() {
+	content: "";
+	display: table;
+	table-layout: fixed;
+}
+
+// Clear after (not all clearfix need this also)
+@mixin clearfix-after() {
+	clear: both;
+}
+
+
+@mixin full-bleed-background{
+background-position:50% 50%;
+background-size:cover;
+background-repeat:no-repeat;
+}
+
+@mixin pseudo-block{
+	content:' ';
+	display:block;
+	position:absolute;
+}
+@mixin pseudo-mask{
+	content:' ';
+	display:block;
+	position:absolute;
+	top:0;
+	left:0;
+	right:0;
+	bottom:0;
+}
+
+@mixin quarter-sec-trans{
+-webkit-transition-duration: .25s;
+-moz-transition-duration: .25s;
+-ms-transition-duration: .25s;
+-o-transition-duration: .25s;
+transition-duration: .25s;
+}
+
+@mixin teo{
+	-webkit-transition-timing-function: ease-out;
+	transition-timing-function: ease-out;
+}
+
+@mixin transition-bounce{
+-webkit-transition: all 250ms cubic-bezier(0.680, 0, 0.265, 1); /* older webkit */
+-webkit-transition: all 250ms cubic-bezier(0.680, -0.550, 0.265, 1.550); 
+   -moz-transition: all 250ms cubic-bezier(0.680, -0.550, 0.265, 1.550); 
+     -o-transition: all 250ms cubic-bezier(0.680, -0.550, 0.265, 1.550); 
+        transition: all 250ms cubic-bezier(0.680, -0.550, 0.265, 1.550); /* easeInOutBack */
+
+-webkit-transition-timing-function: cubic-bezier(0.680, 0, 0.265, 1); /* older webkit */
+-webkit-transition-timing-function: cubic-bezier(0.680, -0.550, 0.265, 1.550); 
+   -moz-transition-timing-function: cubic-bezier(0.680, -0.550, 0.265, 1.550); 
+     -o-transition-timing-function: cubic-bezier(0.680, -0.550, 0.265, 1.550); 
+        transition-timing-function: cubic-bezier(0.680, -0.550, 0.265, 1.550); /* easeInOutBack */
+}
+
+@mixin transition-tenth-sec {
+	-webkit-transition-duration: .15s;
+	-moz-transition-duration: .15s;
+	-ms-transition-duration: .15s;
+	-o-transition-duration: .15s;
+	transition-duration: .15s;
+}
+@mixin transition-quarter-sec {
+	-webkit-transition-duration: .25s;
+	   -moz-transition-duration: .25s;
+	    -ms-transition-duration: .25s;
+	     -o-transition-duration: .25s;
+	        transition-duration: .25s;
+}
+@mixin transition-ease-out {
+		-webkit-transition-timing-function: ease-out;
+		transition-timing-function: ease-out;
+}
+@mixin transition-ease-in {
+		-webkit-transition-timing-function: ease-in;
+		transition-timing-function: ease-in;
+}
+
+@mixin half-sec-trans{
+-webkit-transition-duration: .5s;
+-moz-transition-duration: .5s;
+-ms-transition-duration: .5s;
+-o-transition-duration: .5s;
+transition-duration: .5s;
+}
+
+@mixin round-corners{
+-webkit-border-radius: .5em;
+-moz-border-radius: .5em;
+-ms-border-radius: .5em;
+-o-border-radius: .5em;
+border-radius:.5em;
+}
+
+@mixin drop-shadow{
+-webkit-box-shadow: 0 0.1em 0.4em rgba(0,0,0,0.5); //, 0 0.1em 0.4em $black;
+-moz-box-shadow: 0 0.1em 0.4em rgba(0,0,0,0.5); //, 0 0.1em 0.4em $black;
+-ms-box-shadow: 0 0.1em 0.4em rgba(0,0,0,0.5); //, 0 0.1em 0.4em $black;
+-o-box-shadow: 0 0.1em 0.4em rgba(0,0,0,0.5); //, 0 0.1em 0.4em $black;
+box-shadow: 0 0.1em 0.4em rgba(0,0,0,0.5); //, 0 0.1em 0.4em $black;
+}
+%perfect-circle{
+	border-radius:50%;
+	-webkit-border-radius:50%;
+	-moz-border-radius:50%;
+}
+@mixin preserve-3d{	
+	transform-style: preserve-3d;
+	-webkit-transform-style: preserve-3d;
+	-moz-transform-style: preserve-3d;
+}
