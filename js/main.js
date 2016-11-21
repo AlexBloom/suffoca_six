@@ -15,20 +15,7 @@
 		   $("#header").removeClass('closed');
 	    }
 	});
-	$("#openAbout").click(function(){
-		$("#primary").addClass('right');
-		$("#about").addClass('open');
-	});
-	$("#openContact").click(function(){
-		$("#primary").addClass('left');
-		$("#contact").addClass('open');
-	});
-	$(".closeOffCanvas").click(function(){
-		$("#about").removeClass('open');
-		$("#contact").removeClass('open');
-		$("#primary").removeClass('left');
-		$("#primary").removeClass('right');
-	});
+
 	$(".subcat").addClass('close');
 	$(".filter").click(function(){
 		$(".subcat").addClass('close');
@@ -88,8 +75,6 @@
 
 
 	//Instafeed Init
-
-
 
   //  var feed = new Instafeed({
 	//	get: 'user',

@@ -40,93 +40,82 @@ global $product;
 
 <article itemscope itemtype="<?php echo woocommerce_get_product_schema(); ?>" id="product-<?php the_ID(); ?>" class="product">
 
-	<!-- <div class="back-link-container">
-		<h6>
-			<a href="shop" id="back-to-shop">Back to Shop</a>
-		</h6>
-	</div> -->
+	<div> <!-- start info slide -->
+		<header>
+				<section class="product-info">
+					<h2 itemprop="name" class="product_title entry-title"><?php the_title(); ?></h2>
 
-	<div class="product-slider">
-		<div> <!-- start info slide -->
-			<header>
-					<section class="product-info">
-						<h2 itemprop="name" class="product_title entry-title"><?php the_title(); ?></h2>
+					<div class="description" itemprop="description">
+						<?php $heading = esc_html( apply_filters( 'woocommerce_product_description_heading', __( 'Product Description', 'woocommerce' ) ) );
+						?>
 
-						<div class="description" itemprop="description">
-							<?php $heading = esc_html( apply_filters( 'woocommerce_product_description_heading', __( 'Product Description', 'woocommerce' ) ) );
-							?>
+						<?php if ( $heading ): ?>
+							<!-- <p> <strong> <?php //echo $heading; ?> </strong> </p> -->
+						<?php endif; ?>
 
-							<?php if ( $heading ): ?>
-							  <!-- <p> <strong> <?php //echo $heading; ?> </strong> </p> -->
-							<?php endif; ?>
+						<?php the_content(); ?>
 
-							<?php the_content(); ?>
+					</div>
 
-						</div>
+					<div itemprop="offers">
+						<h6 class="price"> <strong> <?php echo $product->get_price_html(); ?> </strong> </h6>
+						<meta itemprop="price" content="<?php echo esc_attr( $product->get_price() ); ?>" />
+						<meta itemprop="priceCurrency" content="<?php echo esc_attr( get_woocommerce_currency() ); ?>" />
+						<link itemprop="availability" href="http://schema.org/<?php echo $product->is_in_stock() ? 'InStock' : 'OutOfStock'; ?>" />
+					</div>
+					<div id="product-selections">
 
-						<div itemprop="offers">
-							<h6 class="price"> <strong> <?php echo $product->get_price_html(); ?> </strong> </h6>
-							<meta itemprop="price" content="<?php echo esc_attr( $product->get_price() ); ?>" />
-							<meta itemprop="priceCurrency" content="<?php echo esc_attr( get_woocommerce_currency() ); ?>" />
-							<link itemprop="availability" href="http://schema.org/<?php echo $product->is_in_stock() ? 'InStock' : 'OutOfStock'; ?>" />
-						</div>
-						<div id="product-selections">
+						<?php
+						 // Remove the things we don't need from the default "Single Product Summary" because we're manually adding them in other layouts.
 
-							<?php
-							 // Remove the things we don't need from the default "Single Product Summary" because we're manually adding them in other layouts.
+						 remove_action('woocommerce_single_product_summary','woocommerce_template_single_title',5);
+						 remove_action('woocommerce_single_product_summary','woocommerce_template_single_rating',10);
+						 remove_action('woocommerce_single_product_summary','woocommerce_template_single_price',10);
+						 remove_action('woocommerce_single_product_summary','woocommerce_template_single_excerpt',20);
+						 remove_action('woocommerce_single_product_summary','woocommerce_template_single_add_to_cart',30);
+						 remove_action('woocommerce_single_product_summary','woocommerce_template_single_meta',40);
+						 remove_action('woocommerce_single_product_summary','woocommerce_template_single_sharing',50);
 
-							 remove_action('woocommerce_single_product_summary','woocommerce_template_single_title',5);
-							 remove_action('woocommerce_single_product_summary','woocommerce_template_single_rating',10);
-							 remove_action('woocommerce_single_product_summary','woocommerce_template_single_price',10);
-							 remove_action('woocommerce_single_product_summary','woocommerce_template_single_excerpt',20);
-							 remove_action('woocommerce_single_product_summary','woocommerce_template_single_add_to_cart',30);
-							 remove_action('woocommerce_single_product_summary','woocommerce_template_single_meta',40);
-							 remove_action('woocommerce_single_product_summary','woocommerce_template_single_sharing',50);
+						 add_action('woocommerce_single_product_summary','woocommerce_template_single_add_to_cart',1);
 
-							 add_action('woocommerce_single_product_summary','woocommerce_template_single_add_to_cart',1);
-
-							 do_action('woocommerce_single_product_summary');
+						 do_action('woocommerce_single_product_summary');
 
 
-							?>
+						?>
 
-							<p class="open-size-chart"><small>Sizing Chart</small></p>
-
-
-						</div>
-					</section>
-					<div class="featured-image">
-								<?php
-									if ( has_post_thumbnail() ) {
-										$image_caption = get_post( get_post_thumbnail_id() )->post_excerpt;
-										$image_link    = wp_get_attachment_url( get_post_thumbnail_id() );
-										$image         = get_the_post_thumbnail( $post->ID, apply_filters( 'single_product_large_thumbnail_size', 'shop_single' ), array(
-											'title'	=> get_the_title( get_post_thumbnail_id() )
-										) );
-
-										$gallery = '';
-
-										echo apply_filters( 'woocommerce_single_product_image_html', sprintf( '<img src="%s" alt="'.$image_caption.'" />', $image_link, $image ), $post->ID );
-
-
-									} else {
-
-										echo apply_filters( 'woocommerce_single_product_image_html', sprintf( '<img src="%s" alt="%s" />', wc_placeholder_img_src(), __( 'Placeholder', 'woocommerce' ) ), $post->ID );
-
-									}
-								?>
+						<p class="open-size-chart"><small>Sizing Chart</small></p>
 
 
 					</div>
-					<aside class="product-actions">
+				</section>
+				<div class="featured-image">
+							<?php
+								if ( has_post_thumbnail() ) {
+									$image_caption = get_post( get_post_thumbnail_id() )->post_excerpt;
+									$image_link    = wp_get_attachment_url( get_post_thumbnail_id() );
+									$image         = get_the_post_thumbnail( $post->ID, apply_filters( 'single_product_large_thumbnail_size', 'shop_single' ), array(
+										'title'	=> get_the_title( get_post_thumbnail_id() )
+									) );
+
+									$gallery = '';
+
+									echo apply_filters( 'woocommerce_single_product_image_html', sprintf( '<img src="%s" alt="'.$image_caption.'" />', $image_link, $image ), $post->ID );
 
 
-					</aside>
+								} else {
 
-					<!-- <div class="size-chart-link">
-					 </div> -->
-			</header>
-		</div> <!-- end info slide -->
+									echo apply_filters( 'woocommerce_single_product_image_html', sprintf( '<img src="%s" alt="%s" />', wc_placeholder_img_src(), __( 'Placeholder', 'woocommerce' ) ), $post->ID );
+
+								}
+							?>
+
+
+				</div>
+		</header>
+	</div> <!-- end info slide -->
+
+
+	<div class="product-slider">
 
 		<!-- call and repeat product slide images here -->
 			<?php
