@@ -16,7 +16,8 @@ wc_print_notices();
 do_action( 'woocommerce_before_cart' ); ?>
 
 <div class="max-width-s float-center">
-<h1 class="text-center black-5"> Your Order </h1>
+<h1 class="black-5"> Almost There </h1>
+<p>Your Shopping Cart</p>
 <hr>
 <form action="<?php echo esc_url( WC()->cart->get_cart_url() ); ?>" method="post">
 

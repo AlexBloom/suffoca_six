@@ -25,8 +25,8 @@
 }
 
 .woocommerce .woocommerce-message{
-	margin-top:3.25rem!important;
-	margin-bottom:-2rem!important;
+	//margin-top:3.25rem!important;
+	//margin-bottom:-2rem!important;
   background-color: $b20;
   padding: 1em;
   text-align: center;
@@ -134,7 +134,7 @@ article.product{
 	background-color:#f7f7f7;
 	float:none;
 	padding:0;
-	margin: 1em 0 0 0;
+	margin: 0;
 
 	h6.price{
 		margin-top:-1em;

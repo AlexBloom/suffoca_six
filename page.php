@@ -17,7 +17,13 @@ get_header(); ?>
 
 	<?php while ( have_posts() ) : the_post(); ?>
 
-		<?php get_template_part( 'template-parts/content', 'page' ); ?>
+		<?php if is_page(array('cart', 'checkout')) {
+						get_template_part( 'template-parts/content', 'checkout');
+					}
+					else{
+						get_template_part( 'template-parts/content', 'page' );
+					}
+		?>
 
 		<?php
 			// If comments are open or we have at least one comment, load up the comment template.
